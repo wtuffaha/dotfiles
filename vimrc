@@ -33,6 +33,7 @@ Bundle "surround.vim"
 Bundle "SuperTab"
 Bundle "file-line"
 Bundle "Align"
+Bundle "grep.vim"
 
 " FuzzyFinder
 Bundle "L9"
@@ -167,7 +168,8 @@ function! VisualSearch(direction) range
     execute "normal ?" . l:pattern . "^M"
   elseif a:direction == 'gv'
     "call CmdLine("noautocmd vimgrep " . '/'. l:pattern . '/gj' . ' **/*')
-    execute "noautocmd vimgrep " . '/'. l:pattern . '/gj' . ' **/*'
+    "execute "noautocmd vimgrep " . '/'. l:pattern . '/gj' . ' **/*'
+    execute "Rgrep -i " . l:pattern
   elseif a:direction == 'f'
     execute "normal /" . l:pattern . "^M"
   endif
