@@ -34,6 +34,7 @@ Bundle "SuperTab"
 Bundle "file-line"
 Bundle "Align"
 Bundle "grep.vim"
+Bundle "grep.vim"
 
 " FuzzyFinder
 Bundle "L9"
@@ -220,3 +221,30 @@ function! <SID>StripTrailingWhitespace()
 endfunction
 nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 nnoremap <F5> :GundoToggle<CR>
+
+map <leader>cc :botright cope<cr>
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
+
+""""""""""""""""""""""""""""""
+" => Statusline
+""""""""""""""""""""""""""""""
+" Always hide the statusline
+set laststatus=2
+
+" Format the statusline
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+
+
+function! CurDir()
+    let curdir = substitute(getcwd(), '/home/waleed/', "~/", "g")
+    return curdir
+endfunction
+
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    else
+        return ''
+    endif
+endfunction
