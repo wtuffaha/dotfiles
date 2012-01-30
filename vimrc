@@ -32,9 +32,8 @@ Bundle "repeat.vim"
 Bundle "surround.vim"
 Bundle "SuperTab"
 Bundle "file-line"
-Bundle "Align"
 Bundle "grep.vim"
-Bundle "grep.vim"
+Bundle "Tabular"
 
 " FuzzyFinder
 Bundle "L9"
@@ -61,8 +60,9 @@ nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 " Command-T
-" Bundle "git://git.wincent.com/command-t.git"
-" let g:CommandTMatchWindowAtTop=1 " show window at top
+Bundle "git://git.wincent.com/command-t.git"
+let g:CommandTMatchWindowAtTop=1 " show window at top
+nnoremap <silent> <Leader>t :CommandT<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -195,12 +195,6 @@ set shiftwidth=2
 set expandtab
 
 set nobackup
-
-let mapleader=','
-map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 nnoremap <silent> <C-i> :call FindInNERDTree()<CR> 
 
