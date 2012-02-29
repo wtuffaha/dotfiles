@@ -34,6 +34,9 @@ Bundle "SuperTab"
 Bundle "file-line"
 Bundle "grep.vim"
 Bundle "Tabular"
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Syntastic'
 
 " FuzzyFinder
 Bundle "L9"
@@ -49,9 +52,9 @@ nnoremap <silent> <Leader>$  :FufDir<CR>
 nnoremap <silent> <Leader>5  :FufChangeList<CR>
 nnoremap <silent> <Leader>6  :FufMruFile<CR>
 nnoremap <silent> <Leader>l  :FufLine<CR>
-nnoremap <silent> <LocalLeader>8  :FufBookmark<CR> 
+nnoremap <silent> <LocalLeader>8  :FufBookmark<CR>
 nnoremap <silent> <Leader>*  :FuzzyFinderAddBookmark<CR><CR>
-nnoremap <silent> <Leader>9  :FufTaggedFile<CR> 
+nnoremap <silent> <Leader>9  :FufTaggedFile<CR>
 " " }}}
 
 " tComment
@@ -155,7 +158,7 @@ function! CmdLine(str)
   exe "menu Foo.Bar :" . a:str
   emenu Foo.Bar
   unmenu Foo
-endfunction 
+endfunction
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -196,7 +199,7 @@ set expandtab
 
 set nobackup
 
-nnoremap <silent> <C-i> :call FindInNERDTree()<CR> 
+nnoremap <silent> <C-i> :call FindInNERDTree()<CR>
 
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
@@ -242,3 +245,9 @@ function! HasPaste()
         return ''
     endif
 endfunction
+
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+let g:Powerline_symbols = 'unicode'
+
+" Insert the charcode segment after the filetype segment
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
