@@ -24,7 +24,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle "YankRing.vim"
 Bundle "jQuery"
 
 " Utility
@@ -35,8 +34,13 @@ Bundle "file-line"
 Bundle "grep.vim"
 Bundle "Tabular"
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Syntastic'
+Bundle 'The-NERD-tree'
+Bundle 'FindInNERDTree'
+Bundle 'textobj-user'
+Bundle 'textobj-rubyblock'
+Bundle 'delimitMate.vim'
+Bundle 'Puppet-Syntax-Highlighting'
 
 " FuzzyFinder
 Bundle "L9"
@@ -251,3 +255,8 @@ let g:Powerline_symbols = 'unicode'
 
 " Insert the charcode segment after the filetype segment
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+
+au BufNewFile,BufRead *.ejs set filetype=html
+
+autocmd QuickFixCmdPost *grep* cwindow
+au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
