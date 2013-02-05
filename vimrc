@@ -41,6 +41,7 @@ Bundle 'textobj-user'
 Bundle 'textobj-rubyblock'
 Bundle 'delimitMate.vim'
 Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'EasyMotion'
 
 " FuzzyFinder
 Bundle "L9"
