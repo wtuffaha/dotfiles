@@ -24,7 +24,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle "jQuery"
 
 " Utility
 Bundle "repeat.vim"
@@ -39,9 +38,11 @@ Bundle 'The-NERD-tree'
 Bundle 'FindInNERDTree'
 Bundle 'textobj-user'
 Bundle 'textobj-rubyblock'
-Bundle 'delimitMate.vim'
+" Bundle 'delimitMate.vim'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'EasyMotion'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'kien/ctrlp.vim'
 
 " FuzzyFinder
 Bundle "L9"
@@ -68,9 +69,9 @@ nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 " Command-T
-Bundle "git://git.wincent.com/command-t.git"
-let g:CommandTMatchWindowAtTop=1 " show window at top
-nnoremap <silent> <Leader>t :CommandT<CR>
+"Bundle "git://git.wincent.com/command-t.git"
+"let g:CommandTMatchWindowAtTop=1 " show window at top
+"nnoremap <silent> <Leader>t :CommandT<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -261,3 +262,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 
 autocmd QuickFixCmdPost *grep* cwindow
 au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
+
+hi CursorColumn cterm=NONE ctermbg=black
+"ctermfg=white guibg=darkred guifg=white
+set cursorcolumn
