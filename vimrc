@@ -43,6 +43,10 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'EasyMotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'rainbow_parentheses.vim'
+Bundle 'tpope/vim-fireplace'
+Bundle 'vim-coffee-script'
 
 " FuzzyFinder
 Bundle "L9"
@@ -197,7 +201,7 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-map <F2> :tabnew .<CR>
+map <F2> :tabnew<CR>
 let NERDTreeShowBookmarks=1
 set tabstop=2
 set shiftwidth=2
