@@ -12,10 +12,13 @@ ZSH_THEME="robbyrussell"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment this to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -23,34 +26,58 @@ ZSH_THEME="robbyrussell"
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment following line if you want to  shown in the command execution time stamp 
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler jruby rails3 rake ruby rvm)
+plugins=(git)
 
-RPROMPT='%~ %{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%} %{$fg_bold[grey]%}%*%{$reset_color%}'
-function rvm_ruby_prompt {
-  ruby_version=$(~/.rvm/bin/rvm-prompt)
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export PATH="/home/waleed/.rbenv/shims:/home/waleed/.rbenv/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/waleed/.cabal/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# # Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+plugins=(git bundler jruby rails rake ruby rvm)
+
+RPROMPT='%~ %{$fg[red]%}$(ruby_prompt)%{$reset_color%} %{$fg_bold[grey]%}%*%{$reset_color%}'
+function ruby_prompt {
+  ruby_version="$(rbenv version | sed -e "s/ (set.*$//")"
   if [ -n "$ruby_version" ]; then
     echo "[$ruby_version]"
   fi
 }
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=/home/waleed/.rvm/gems/ruby-1.9.3-p194/bin:/home/waleed/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/waleed/.rvm/rubies/ruby-1.9.3-p194/bin:/home/waleed/.rvm/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/waleed/.rvm/bin
-
-alias app1='ssh -p 788 boundless@5.79.60.209'
-alias app2='ssh -p 788 boundless@5.79.60.210'
-alias app3='ssh -p 788 boundless@5.79.60.211'
-alias mail_com='ssh root@31.222.157.244'
-alias mail_net='ssh root@31.222.155.223'
-alias staging='ssh boundless@test.jawaker.com'
-alias bmailr='ssh root@bmailr.com'
 
 export JAWAKER_DIR=/mnt/apps/jawaker
 export REDIS_DIR=~/src/redis/src
