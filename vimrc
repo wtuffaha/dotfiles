@@ -270,3 +270,8 @@ au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
 hi CursorColumn cterm=NONE ctermbg=black
 "ctermfg=white guibg=darkred guifg=white
 set cursorcolumn
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
