@@ -47,6 +47,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'rainbow_parentheses.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-coffee-script'
+Bundle 'git://github.com/mxw/vim-jsx.git'
 
 " FuzzyFinder
 Bundle "L9"
@@ -291,3 +292,5 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
+let g:syntastic_javascript_checkers = ['jsxhint']
