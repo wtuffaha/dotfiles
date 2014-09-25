@@ -4,7 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'repeat.vim'
@@ -16,7 +16,6 @@ Plugin 'Tabular'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Syntastic'
 Plugin 'The-NERD-tree'
-Plugin 'FindInNERDTree'
 Plugin 'textobj-user'
 Plugin 'textobj-rubyblock'
 Plugin 'Puppet-Syntax-Highlighting'
@@ -27,9 +26,16 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-coffee-script'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " tComment
 Plugin 'tComment'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let mapleader=','
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
@@ -154,7 +160,8 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-map <F2> :tabnew<CR>
+map <Tab> :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 set tabstop=2
 set shiftwidth=2
@@ -162,25 +169,12 @@ set expandtab
 
 set nobackup
 
-nnoremap <silent> <C-i> :call FindInNERDTree()<CR>
-
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 highlight EOLWS ctermbg=red guibg=red
 
-function! <SID>StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
-nnoremap <F5> :GundoToggle<CR>
+"nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
+nmap <Leader><space> :StripWhitespace<CR>
 
 map <leader>cc :botright cope<cr>
 map <leader>n :cn<cr>
